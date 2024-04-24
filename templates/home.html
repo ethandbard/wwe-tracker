@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WWE Tracker</title>
+    <!-- Add the Skeleton CSS file -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to the WWE Tracker</h1>
+      <p>
+        <a class="button button-primary" href="{{ url_for('wrestlers') }}"
+          >Go to Wrestlers</a
+        >
+      </p>
+      <p>
+        <a class="button button-primary" href="{{ url_for('matches') }}"
+          >Go to Matches</a
+        >
+      </p>
+      <p>
+        <a class="button button-primary" href="{{ url_for('view_wrestlers') }}"
+          >View Wrestlers</a
+        >
+      </p>
+      <p>
+        <a class="button button-primary" href="{{ url_for('view_matches') }}"
+          >View Matches</a
+        >
+      </p>
+    </div>
+  </body>
+</html>

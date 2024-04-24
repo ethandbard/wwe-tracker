@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wrestling Record Form</title>
+  </head>
+  <body>
+    <h1>Wrestling Record Form</h1>
+    <form method="POST">
+      <label for="name">Wrestler Name:</label><br />
+      <input type="text" id="name" name="name" /><br />
+      <input type="submit" value="Submit" />
+      <!-- home -->
+      <a href="{{ url_for('home') }}">Go to Home</a>
+    </form>
+  </body>
+</html>

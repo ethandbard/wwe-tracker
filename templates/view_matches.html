@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Matches</title>
+    <!-- Add the Skeleton CSS file -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>View Matches</h1>
+      <form method="POST">
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <!-- Add your table headers here -->
+              <th>Match Sequence</th>
+              <th>Person</th>
+              <th>Match Type</th>
+              <th>Show</th>
+              <th>Year</th>
+              <th>Month</th>
+              <th>Week</th>
+              <th>Championship</th>
+              <th>Result</th>
+              <th>Storyline</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for match in matches %}
+            <tr>
+              <!-- Add your table cells here -->
+              <td>
+                <input
+                  class="u-full-width"
+                  type="text"
+                  name="match_sequence-{{ loop.index0 }}"
+                  value="{{ match.matchseq}}"
+                />
+              </td>
+              <td>
+                <input
+                  class="u-full-width"
+                  type="text"
+                  name="person-{{ loop.index0 }}"
+                  value="{{ match.person }}"
+                />
+              </td>
+              <td>
+                <input
+                  class="u-full-width"
+                  type="text"
+                  name="match_type-{{ loop.index0 }}"
+                  value="{{ match.match_type }}"
+                />
+              </td>
+              <td>
+                <input
+                  class="u-full-width"
+                  type="text"
+                  name="show-{{ loop.index0 }}"
+                  value="{{ match.show }}"
+                />
+              </td>
+              <td>
+                <input
+                  class="u-full-width"
+                  type="text"
+                  name="year-{{ loop.index0 }}"
+                  value="{{ match.year }}"
+                />
+              </td>
+              <td>
+                <input
+                  class="u-full-width"
+                  type="text"
+                  name="month-{{ loop.index0 }}"
+                  value="{{ match.month }}"
+                />
+              </td>
+              <td>
+                <input
+                  class="u-full-width"
+                  type="text"
+                  name="week-{{ loop.index0 }}"
+                  value="{{ match.week }}"
+                />
+              </td>
+              <td>
+                <input
+                  class="u-full-width"
+                  type="text"
+                  name="championship-{{ loop.index0 }}"
+                  value="{{ match.championship }}"
+                />
+              </td>
+              <td>
+                <input
+                  class="u-full-width"
+                  type="text"
+                  name="result-{{ loop.index0 }}"
+                  value="{{ match.result }}"
+                />
+              </td>
+              <td>
+                <input
+                  class="u-full-width"
+                  type="text"
+                  name="storyline-{{ loop.index0 }}"
+                  value="{{ match.storyline }}"
+                />
+              </td>
+              <td>
+                <input
+                  class="u-full-width"
+                  type="text"
+                  name="notes-{{ loop.index0 }}"
+                  value="{{ match.notes }}"
+                />
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <input class="button-primary" type="submit" value="Update Matches" />
+        <a class="button" href="/">Home</a>
+      </form>
+    </div>
+  </body>
+</html>

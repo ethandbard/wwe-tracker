@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Wrestlers</title>
+  </head>
+  <body>
+    <h1>View Wrestlers</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <!-- Add more headers here if your wrestlers have more properties -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for wrestler in wrestlers %}
+        <tr>
+          <td>{{ wrestler.name }}</td>
+          <!-- Add more cells here if your wrestlers have more properties -->
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
