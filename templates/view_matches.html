@@ -7,11 +7,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
     />
+  </style>
   </head>
   <body>
     <div class="container">
       <h1>View Matches</h1>
-      <form method="POST">
+      <form method="POST" action = "/update_matches">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
         <table class="u-full-width">
           <thead>
             <tr>
@@ -37,8 +39,8 @@
                 <input
                   class="u-full-width"
                   type="text"
-                  name="match_sequence-{{ loop.index0 }}"
-                  value="{{ match.matchseq}}"
+                  name="matchseq-{{ loop.index0 }}"
+                  value="{{ match.matchseq }}"
                 />
               </td>
               <td>
@@ -53,8 +55,8 @@
                 <input
                   class="u-full-width"
                   type="text"
-                  name="match_type-{{ loop.index0 }}"
-                  value="{{ match.match_type }}"
+                  name="matchtype-{{ loop.index0 }}"
+                  value="{{ match.matchtype }}"
                 />
               </td>
               <td>
@@ -126,8 +128,8 @@
           </tbody>
         </table>
         <input class="button-primary" type="submit" value="Update Matches" />
+        </form>
         <a class="button" href="/">Home</a>
-      </form>
     </div>
   </body>
 </html>

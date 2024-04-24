@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Insert Match</title>
+        <!-- Add the Skeleton CSS file -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Insert Match</h1>
+            <form method="POST" action="/insert_matches">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+                <table class="u-full-width">
+                    <thead>
+                        <tr>
+                            <!-- Add your table headers here -->
+                            <th>Match Sequence</th>
+                            <th>Person</th>
+                            <th>Match Type</th>
+                            <th>Show</th>
+                            <th>Year</th>
+                            <th>Month</th>
+                            <th>Week</th>
+                            <th>Championship</th>
+                            <th>Result</th>
+                            <th>Storyline</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- Add your table cells here -->
+                            <td>
+                                <input
+                                    class="u-full-width"
+                                    type="text"
+                                    name="matchseq"
+                                />
+                            </td>
+                            <td>
+                                <select class="u-full-width" name="person" multiple>
+                                    {% for wrestler in wrestlers %}
+                                    <option value="{{ wrestler }}">{{ wrestler }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            <td>
+                                <input
+                                    class="u-full-width"
+                                    type="text"
+                                    name="matchtype"
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    class="u-full-width"
+                                    type="text"
+                                    name="show"
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    class="u-full-width"
+                                    type="text"
+                                    name="year"
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    class="u-full-width"
+                                    type="text"
+                                    name="month"
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    class="u-full-width"
+                                    type="text"
+                                    name="week"
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    class="u-full-width"
+                                    type="text"
+                                    name="championship"
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    class="u-full-width"
+                                    type="text"
+                                    name="result"
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    class="u-full-width"
+                                    type="text"
+                                    name="storyline"
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    class="u-full-width"
+                                    type="text"
+                                    name="notes"
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input class="button-primary" type="submit" value="Insert Match" />
+            </form>
+            <a class="button" href="/">Home</a>
+        </div>
+    </body>
+</html>

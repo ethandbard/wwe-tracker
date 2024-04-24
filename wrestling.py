@@ -11,7 +11,7 @@ scope = [
     "https://www.googleapis.com/auth/drive",
 ]
 creds = ServiceAccountCredentials.from_json_keyfile_name(
-    "wwe-tracker/wwe-tracker-421019-657b24ee796a.json", scope
+    "wwe-tracker-421019-657b24ee796a.json", scope
 )
 client = gspread.authorize(creds)
 
@@ -26,7 +26,7 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/wrestlers", methods=["GET", "POST"])
+@app.route("/wrestlers", methods=["GET", "POST"])        
 def wrestlers():
     if request.method == "POST":
         data = request.form
@@ -52,12 +52,12 @@ expected_headers = [
 ]
 
 
-@app.route("/match", methods=["GET", "POST"])
-def matches():
+@app.route("/insert_matches", methods=["GET", "POST"])
+def insert_matches():
     wrestlers = wrestlers_sheet.get_all_records()
     wrestler_names = [
         wrestler["name"] for wrestler in wrestlers
-    ]  # replace 'name' with the actual column name
+    ]  
     if request.method == "POST":
         data = request.form
         matchid = (
@@ -79,8 +79,8 @@ def matches():
         ]
         print(f"Row to append: {row}")  # Print the row to append
         matches_sheet.insert_row(row, index=matchid + 1)  # Insert the new row
-        return redirect(url_for("matches"))
-    return render_template("matches.html", wrestlers=wrestler_names)
+        return redirect(url_for("insert_matches"))
+    return render_template("insert_matches.html", wrestlers=wrestler_names)
 
 
 @app.route("/view_wrestlers", methods=["GET", "POST"])
@@ -121,14 +121,14 @@ def is_int(value):
         return False
 
 
-@app.route("/update_matches", methods=["POST"])
+@app.route("/update_matches", methods=["GET", "POST"])
 def update_matches():
     data = request.form
     records = matches_sheet.get_all_records()  # Retrieve the records once
     for i in range(len(records)):
         row = [
             None,
-            int(data[f"matchseq-{i}"]) if is_int(data[f"matchseq-{i}"]) else 0,
+            data[f"matchseq-{i}"], # if is_int(data[f"matchseq-{i}"]) else 0,
             data[f"person-{i}"],
             data[f"matchtype-{i}"],
             data[f"show-{i}"],
